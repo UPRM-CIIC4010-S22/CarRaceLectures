@@ -1,0 +1,6 @@
+obj/*
+bin/*
+CarRaceS22.xcodeproj/*
+.vscode/browse.db*
+Project.xcconfig
+openFrameworks-Info.plist
