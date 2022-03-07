@@ -1,41 +1,27 @@
 #include "ofApp.h"
+#include "Car.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-    this->setCarXPos(0);
-    this->setCarYPos(10);
-    this->setCarSpeed(5);
-    this->setCarDirection(1);
+    firstCar = Car(0,0,1,5);
+
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 
-    this->setCarXPos(this->getCarXPos() + this->getCarDirection() * this->getCarSpeed());
-    if (((this->getCarDirection() > 0) && (this->getCarXPos() + 60 >= ofGetWidth())) ||
-        ((this->getCarDirection() < 0) && this->getCarXPos() <= 0)) {
-        this->setCarDirection(this->getCarDirection() * -1);
+    firstCar.move(firstCar.getDirection() * firstCar.getSpeed(),0);
+    if (((firstCar.getDirection() > 0) && (firstCar.getX() + 60 >= ofGetWidth())) ||
+        ((firstCar.getDirection() < 0) && firstCar.getX() <= 0)) {
+        firstCar.setDirection(firstCar.getDirection() * -1);
     }
 }
 
 //--------------------------------------------------------------
-void ofApp::draw(){
+void ofApp::draw() {
 
-    double x = this->getCarXPos();
-    double y = this->getCarYPos();
-    //ofSetColor(this->getColor());
-    // Draw body
-    ofDrawRectangle(x + 0, y + 10, 60, 10);
-    // Draw roof and windshields
-    ofDrawLine(x + 10, y + 10, x + 20, y + 0);
-    ofDrawLine(x + 20, y + 0, x + 40, y + 0);
-    ofDrawLine(x + 40, y + 0, x + 50, y + 10);
-
-    ofSetColor(ofColor(255,255,255));
-    // Draw tires
-    ofDrawCircle(x + 15, y + 25, 5);
-    ofDrawCircle(x + 45, y + 25, 5);
+    firstCar.draw();
 
 }
 

@@ -1,14 +1,13 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Car.h"
 
 class ofApp : public ofBaseApp{
 
 	private:
-		int carXPos;
-		int carYPos;
-		int carSpeed;
-		int carDirection;
+
+	Car firstCar;
 
 	public:
 		void setup();
@@ -27,14 +26,14 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		int getCarXPos() { return carXPos; }
-		int getCarYPos() { return carYPos; }
-		int getCarSpeed() { return carSpeed; }
-		int getCarDirection() { return carDirection; }
+		// int getCarXPos() { return carXPos; }
+		// int getCarYPos() { return carYPos; }
+		// int getCarSpeed() { return carSpeed; }
+		// int getCarDirection() { return carDirection; }
 
-		void setCarXPos(int x) { carXPos = x; }
-		void setCarYPos(int y) { carYPos = y; }
-		void setCarSpeed(int speed) { carSpeed = speed; }
-		void setCarDirection(int d) { carDirection = d; }
+		// void setCarXPos(int x) { carXPos = x; }
+		// void setCarYPos(int y) { carYPos = y; }
+		// void setCarSpeed(int speed) { carSpeed = speed; }
+		// void setCarDirection(int d) { carDirection = d; }
 		
 };
