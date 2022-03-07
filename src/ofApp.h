@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include "ofMain.h"
 #include "Car.h"
 
@@ -7,7 +9,7 @@ class ofApp : public ofBaseApp{
 
 	private:
 
-	Car firstCar;
+	vector<Car> theCars;
 
 	public:
 		void setup();

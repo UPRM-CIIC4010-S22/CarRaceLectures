@@ -4,25 +4,34 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-    firstCar = Car(0,0,1,5);
+    // firstCar = Car(0,0,1,5);
+    int numCars = 10;
+    int laneY = 0;
+    for (int i=1; i<numCars; i++) {
+        theCars.push_back(Car(0,laneY,1,5));
+        laneY += 40;
+    }
 
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 
-    firstCar.move(firstCar.getDirection() * firstCar.getSpeed(),0);
-    if (((firstCar.getDirection() > 0) && (firstCar.getX() + 60 >= ofGetWidth())) ||
-        ((firstCar.getDirection() < 0) && firstCar.getX() <= 0)) {
-        firstCar.setDirection(firstCar.getDirection() * -1);
+    for (int i = 0; i < theCars.size(); i++) {
+        theCars[i].move(theCars[i].getDirection() * theCars[i].getSpeed(), 0);
+        if (((theCars[i].getDirection() > 0) && (theCars[i].getX() + 60 >= ofGetWidth())) ||
+            ((theCars[i].getDirection() < 0) && theCars[i].getX() <= 0)) {
+            theCars[i].setDirection(theCars[i].getDirection() * -1);
+        }
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw() {
 
-    firstCar.draw();
-
+    for (int i = 0; i < theCars.size(); i++) {
+        theCars[i].draw();
+    }
 }
 
 //--------------------------------------------------------------
