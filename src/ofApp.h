@@ -4,6 +4,11 @@
 
 class ofApp : public ofBaseApp{
 
+	private:
+		int carXPos;
+		int carYPos;
+		int carSpeed;
+
 	public:
 		void setup();
 		void update();
@@ -20,5 +25,13 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+
+		int getCarXPos() { return carXPos; }
+		int getCarYPos() { return carYPos; }
+		int getCarSpeed() { return carSpeed; }
+
+		void setCarXPos(int x) { carXPos = x; }
+		void setCarYPos(int y) { carYPos = y; }
+		void setCarSpeed(int speed) { carSpeed = speed; }
 		
 };

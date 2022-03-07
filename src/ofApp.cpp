@@ -3,18 +3,23 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
+    this->setCarXPos(0);
+    this->setCarYPos(10);
+    this->setCarSpeed(5);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+
+    this->setCarXPos(this->getCarXPos() + this->getCarSpeed());
 
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-    double x = 100;
-    double y = 100;
+    double x = this->getCarXPos();
+    double y = this->getCarYPos();
     //ofSetColor(this->getColor());
     // Draw body
     ofDrawRectangle(x + 0, y + 10, 60, 10);
