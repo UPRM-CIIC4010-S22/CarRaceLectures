@@ -8,6 +8,7 @@ class ofApp : public ofBaseApp{
 		int carXPos;
 		int carYPos;
 		int carSpeed;
+		int carDirection;
 
 	public:
 		void setup();
@@ -29,9 +30,11 @@ class ofApp : public ofBaseApp{
 		int getCarXPos() { return carXPos; }
 		int getCarYPos() { return carYPos; }
 		int getCarSpeed() { return carSpeed; }
+		int getCarDirection() { return carDirection; }
 
 		void setCarXPos(int x) { carXPos = x; }
 		void setCarYPos(int y) { carYPos = y; }
 		void setCarSpeed(int speed) { carSpeed = speed; }
+		void setCarDirection(int d) { carDirection = d; }
 		
 };

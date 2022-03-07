@@ -6,13 +6,17 @@ void ofApp::setup(){
     this->setCarXPos(0);
     this->setCarYPos(10);
     this->setCarSpeed(5);
+    this->setCarDirection(1);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 
-    this->setCarXPos(this->getCarXPos() + this->getCarSpeed());
-
+    this->setCarXPos(this->getCarXPos() + this->getCarDirection() * this->getCarSpeed());
+    if (((this->getCarDirection() > 0) && (this->getCarXPos() + 60 >= ofGetWidth())) ||
+        ((this->getCarDirection() < 0) && this->getCarXPos() <= 0)) {
+        this->setCarDirection(this->getCarDirection() * -1);
+    }
 }
 
 //--------------------------------------------------------------
