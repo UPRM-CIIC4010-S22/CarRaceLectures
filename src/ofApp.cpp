@@ -18,7 +18,8 @@ void ofApp::setup(){
 void ofApp::update(){
 
     for (int i = 0; i < theCars.size(); i++) {
-        theCars[i].move(theCars[i].getDirection() * theCars[i].getSpeed(), 0);
+        long deltaX = ofRandom(theCars[i].getSpeed()) * theCars[i].getDirection();
+        theCars[i].move(deltaX, 0);
         if (((theCars[i].getDirection() > 0) && (theCars[i].getX() + 60 >= ofGetWidth())) ||
             ((theCars[i].getDirection() < 0) && theCars[i].getX() <= 0)) {
             theCars[i].setDirection(theCars[i].getDirection() * -1);
