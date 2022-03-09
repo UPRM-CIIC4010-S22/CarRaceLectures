@@ -28,6 +28,16 @@ void ofApp::update(){
             break;
         }
     }
+
+    int leaderPosition = 0;
+    for (int i=1; i<theCars.size(); i++) {
+        theCars[i].setColor(ofColor(255,255,255));
+        if (theCars[i].getX() >= theCars[leaderPosition].getX()) {
+            leaderPosition = i;
+        }
+    }
+    theCars[leaderPosition].setColor(ofColor(255,0,0));
+
 }
 
 //--------------------------------------------------------------
