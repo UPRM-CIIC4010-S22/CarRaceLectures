@@ -5,6 +5,7 @@
 void ofApp::setup(){
 
     // firstCar = Car(0,0,1,5);
+    raceFinished = false;
     int numCars = 10;
     int laneY = 0;
     for (int i=1; i<numCars; i++) {
@@ -17,12 +18,14 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 
+    if (raceFinished) return;
+    
     for (int i = 0; i < theCars.size(); i++) {
         long deltaX = ofRandom(theCars[i].getSpeed()) * theCars[i].getDirection();
         theCars[i].move(deltaX, 0);
-        if (((theCars[i].getDirection() > 0) && (theCars[i].getX() + 60 >= ofGetWidth())) ||
-            ((theCars[i].getDirection() < 0) && theCars[i].getX() <= 0)) {
-            theCars[i].setDirection(theCars[i].getDirection() * -1);
+        if ((theCars[i].getDirection() > 0) && (theCars[i].getX() + 60 >= ofGetWidth())) {
+            raceFinished = true;
+            break;
         }
     }
 }

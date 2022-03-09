@@ -11,6 +11,8 @@ class ofApp : public ofBaseApp{
 
 	vector<Car> theCars;
 
+	bool raceFinished;
+
 	public:
 		void setup();
 		void update();
