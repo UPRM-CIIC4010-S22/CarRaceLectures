@@ -4,12 +4,13 @@
 
 #include "ofMain.h"
 #include "Car.h"
+#include "PoliceCar.h"
 
 class ofApp : public ofBaseApp{
 
 	private:
 
-	vector<Car> theCars;
+	vector<Car *> theCars;
 
 	bool raceFinished;
 

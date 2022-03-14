@@ -44,5 +44,5 @@ class Car {
         direction = 1;
     }
 
-    void draw();
+    virtual void draw();
 };

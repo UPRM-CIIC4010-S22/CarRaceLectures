@@ -1,5 +1,6 @@
 #include "ofApp.h"
 #include "Car.h"
+#include "PoliceCar.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -7,9 +8,13 @@ void ofApp::setup(){
     // firstCar = Car(0,0,1,5);
     raceFinished = false;
     int numCars = 10;
-    int laneY = 0;
+    int laneY = 10;
     for (int i=1; i<numCars; i++) {
-        theCars.push_back(Car(0,laneY,1,5));
+        if (i % 2 == 0) {
+            theCars.push_back(new Car(0,laneY,1,5));
+        } else {
+            theCars.push_back(new PoliceCar(0,laneY,1,5));
+        }
         laneY += 40;
     }
 
@@ -21,23 +26,23 @@ void ofApp::update(){
     if (raceFinished) return;
     
     for (int i = 0; i < theCars.size(); i++) {
-        long deltaX = ofRandom(theCars[i].getSpeed()) * theCars[i].getDirection();
-        theCars[i].move(deltaX, 0);
-        if ((theCars[i].getDirection() > 0) && (theCars[i].getX() + 60 >= ofGetWidth())) {
+        long deltaX = ofRandom(theCars[i]->getSpeed()) * theCars[i]->getDirection();
+        theCars[i]->move(deltaX, 0);
+        if ((theCars[i]->getDirection() > 0) && (theCars[i]->getX() + 60 >= ofGetWidth())) {
             raceFinished = true;
             break;
         }
     }
 
     int leaderPosition = 0;
-    theCars[0].setColor(ofColor(255,255,255));
+    theCars[0]->setColor(ofColor(255,255,255));
     for (int i=1; i<theCars.size(); i++) {
-        theCars[i].setColor(ofColor(255,255,255));
-        if (theCars[i].getX() >= theCars[leaderPosition].getX()) {
+        theCars[i]->setColor(ofColor(255,255,255));
+        if (theCars[i]->getX() >= theCars[leaderPosition]->getX()) {
             leaderPosition = i;
         }
     }
-    theCars[leaderPosition].setColor(ofColor(255,0,0));
+    theCars[leaderPosition]->setColor(ofColor(255,0,0));
 
 }
 
@@ -45,7 +50,7 @@ void ofApp::update(){
 void ofApp::draw() {
 
     for (int i = 0; i < theCars.size(); i++) {
-        theCars[i].draw();
+        theCars[i]->draw();
     }
 }
 
