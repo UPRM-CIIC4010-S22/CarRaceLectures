@@ -30,6 +30,7 @@ void ofApp::update(){
     }
 
     int leaderPosition = 0;
+    theCars[0].setColor(ofColor(255,255,255));
     for (int i=1; i<theCars.size(); i++) {
         theCars[i].setColor(ofColor(255,255,255));
         if (theCars[i].getX() >= theCars[leaderPosition].getX()) {
