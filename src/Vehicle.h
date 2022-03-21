@@ -1,8 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Raceable.h"
 
-class Vehicle {
+class Vehicle : public Raceable {
 
     private:
     int xPos;

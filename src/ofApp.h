@@ -5,13 +5,13 @@
 #include "ofMain.h"
 // #include "Car.h"
 // #include "PoliceCar.h"
-#include "Vehicle.h"
+#include "Raceable.h"
 
 class ofApp : public ofBaseApp{
 
 	private:
 
-	vector<Vehicle *> theCars;
+	vector<Raceable *> theRacers;
 
 	bool raceFinished;
 
